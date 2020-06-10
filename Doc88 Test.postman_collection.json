@@ -1,0 +1,850 @@
+{
+	"info": {
+		"_postman_id": "bf2f8156-1cd3-4340-8125-40d12f40d4ff",
+		"name": "Doc88 Test",
+		"description": "Backend test for doc88 company",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pastel",
+			"item": [
+				{
+					"name": "Create Pastel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Pastel novo 2",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/Familia/Downloads/pastel.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{pastel_url}}/pastel",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"pastel"
+							]
+						},
+						"description": "Creates a new pastel\n\nEx:\n\n - name: Pastel novo 2,\n - price: 10.0\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Read Pastel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/pastel/1",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"pastel",
+								"1"
+							]
+						},
+						"description": "Show pastel details"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pastel",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Pastel de carne novo",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{pastel_url}}/pastel/{pastel_id}",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"pastel",
+								"{pastel_id}"
+							]
+						},
+						"description": "Update pastel details\nYou can send partial objects.\n\nEx:\n - name: Pastel de carne novo\n - price: 5"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Photo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/Familia/Downloads/pastel.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{pastel_url}}/pastel/{pastel_id}/updatePhoto",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"pastel",
+								"{pastel_id}",
+								"updatePhoto"
+							]
+						},
+						"description": "Update a pastel photo\nThe file field name is \"photo\""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pastel",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/pastel/{pastel_id}",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"pastel",
+								"{pastel_id}"
+							]
+						},
+						"description": "This feature uses soft deletes"
+					},
+					"response": []
+				},
+				{
+					"name": "List Pastels",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/pastel",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"pastel"
+							]
+						},
+						"description": "List all available pastels\n\nYou can pass a query string parameter to change the size of elements returned:\npaginate=10\nWill return 10 items per page"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Photo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/pastel/1/photo",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"pastel",
+								"1",
+								"photo"
+							]
+						},
+						"description": "Get pastel photo\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Pastel",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/pastel/{pastel_id}/restore",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"pastel",
+								"{pastel_id}",
+								"restore"
+							]
+						},
+						"description": "Restore a pastel deleted with soft delete"
+					},
+					"response": []
+				}
+			],
+			"description": "Pastel CRUDL",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f4c3a86a-3dcb-4ba1-8a97-ce6f0904e508",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "637797ab-ffed-48cd-9f16-3f65ef3f89f1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Create Client",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Client 2",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "client2@email.com",
+									"type": "text"
+								},
+								{
+									"key": "telephone",
+									"value": "11958789855",
+									"type": "text"
+								},
+								{
+									"key": "birthdate",
+									"value": "1990-11-25",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Rua dos Pinheiros, 22",
+									"type": "text"
+								},
+								{
+									"key": "complement",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "neighborhood",
+									"value": "Pinheiros",
+									"type": "text"
+								},
+								{
+									"key": "zipcode",
+									"value": "04488147",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{pastel_url}}/client",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"client"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Creates a new client\n\nEx:\n - name:Client 2\n - email:client2@email.com\n - telephone:11958789855\n - birthdate:1990-11-25\n - address:Rua dos Pinheiros, 22\n - complement:\n - neighborhood:Pinheiros\n - zipcode:04488147"
+					},
+					"response": []
+				},
+				{
+					"name": "Read Client",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/client/{client_id}",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"client",
+								"{client_id}"
+							]
+						},
+						"description": "Show pastel details"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Client 2",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "client2@email.com",
+									"type": "text"
+								},
+								{
+									"key": "telephone",
+									"value": "11958789855",
+									"type": "text"
+								},
+								{
+									"key": "birthdate",
+									"value": "1990-05-22",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Rua dos Pinheiros, 22",
+									"type": "text"
+								},
+								{
+									"key": "complement",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "neighborhood",
+									"value": "Pinheiros",
+									"type": "text"
+								},
+								{
+									"key": "zipcode",
+									"value": "04488147",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{pastel_url}}/client/{client_id}",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"client",
+								"{client_id}"
+							]
+						},
+						"description": "Update client details\r\n\r\nEx:\r\n - name:Client 2\r\n - email:client2@email.com\r\n - telephone:11958789855\r\n - birthdate:1990-05-22\r\n - address:Rua dos Pinheiros, 22\r\n - complement:\r\n - neighborhood:Pinheiros\r\n - zipcode:04488147"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/client/{client_id}",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"client",
+								"{client_id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Clients",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/client",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"client"
+							]
+						},
+						"description": "List all available pastels\n\nYou can pass a query string parameter to change the size of elements returned:\npaginate=10\nWill return 10 items per page"
+					},
+					"response": []
+				},
+				{
+					"name": "Restore Client",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/client/{client_id}/restore",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"client",
+								"{client_id}",
+								"restore"
+							]
+						},
+						"description": "Restore a client deleted with soft delete"
+					},
+					"response": []
+				}
+			],
+			"description": "Client CRUDL",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "818e9856-e969-4a84-a307-75f4c4a58e81",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "376bee58-5024-426d-a7dc-003e09c446c8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "pastel",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{pastel_url}}/order",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "Create an order\nClient must exists\nPastel must exists\n\nEx:\n - client:1\n - pastel:1"
+					},
+					"response": []
+				},
+				{
+					"name": "Read Order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/order/{order_id}",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"order",
+								"{order_id}"
+							]
+						},
+						"description": "Returns orders details"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pastel",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{pastel_url}}/order/{order_id}",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"order",
+								"{order_id}"
+							]
+						},
+						"description": "Update an order if the status still received\n\n - client:1\n - pastel:2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/order/{order_id}",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"order",
+								"{order_id}"
+							]
+						},
+						"description": "Delete an order if the status is received"
+					},
+					"response": []
+				},
+				{
+					"name": "List Orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/order",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "List all orders"
+					},
+					"response": []
+				},
+				{
+					"name": "List Orders by Client",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/order/client/{client_id}",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"order",
+								"client",
+								"{client_id}"
+							]
+						},
+						"description": "List orders from a given client"
+					},
+					"response": []
+				},
+				{
+					"name": "Restore",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{pastel_url}}/order/{order_id}/restore",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"order",
+								"{order_id}",
+								"restore"
+							]
+						},
+						"description": "Restore a deleted order"
+					},
+					"response": []
+				},
+				{
+					"name": "Finish Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{pastel_url}}/order/{client_id}/finish",
+							"host": [
+								"{{pastel_url}}"
+							],
+							"path": [
+								"order",
+								"{client_id}",
+								"finish"
+							]
+						},
+						"description": "Finish the order and send email with details"
+					},
+					"response": []
+				}
+			],
+			"description": "For creating orders",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b80fa079-6977-4947-bd08-b6dba52a946e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f51d3bd8-8a1f-42cb-83a4-3cb27db9b446",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
